@@ -11,6 +11,14 @@ extension String {
     
 }
 extension String {
+    
+    func asUrl() throws -> URL {
+        guard let url = URL(string: self) else {
+            throw NetworkError.invalidUrl
+        }
+        return url
+    }
+    
     var isEmptyOrWhitespace: Bool {
         if(self.isEmpty) {
             return true

@@ -21,5 +21,9 @@ extension View {
         alignment: TextAlignment = .center) -> some View {
         self.modifier(TextStyleModifier(color: color, font: font, weight: weight, alignment: alignment))
     }
+    
+    var cardModifier: some View {
+        self.modifier(CardModifier())
+    }
 }
     

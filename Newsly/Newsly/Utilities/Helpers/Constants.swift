@@ -7,5 +7,6 @@
 
 import Foundation
 
+let apiKey: String = "acb264e1f0174c09a2a11cc709099635"
 typealias DefaultHandler = (() -> ())
 typealias GenericHandler<T> = (T?, Error?) -> Void
