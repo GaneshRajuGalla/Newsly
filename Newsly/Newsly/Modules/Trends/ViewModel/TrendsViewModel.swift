@@ -21,6 +21,13 @@ final class TrendsViewModel: ObservableObject {
     ]
     
     @Published var selectedCategories: [String] = []
+    
+    init() {
+        selectedCategories = ["business", "entertainment", "general", "health",  "science", "sports", "technology"]
+        Task {
+            await getHeadlines()
+        }
+    }
 }
 
 // MARK: - Helpers
@@ -32,7 +39,7 @@ extension TrendsViewModel {
                 let query = NewsQuery(country: "us", category: category, apiKey: apiKey)
                 if let news: News = try await APIClient.sendRequest(endPoint: .getNews(query)),
                    let articles = news.articles {
-                    Task { @MainActor in
+                    DispatchQueue.main.async {
                         self.categoryArticles[category] = articles
                     }
                 }

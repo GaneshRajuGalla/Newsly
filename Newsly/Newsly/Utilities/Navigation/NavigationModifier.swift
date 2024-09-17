@@ -15,8 +15,10 @@ struct NavigationModifier: ViewModifier {
     @ViewBuilder
     fileprivate func coordinator(route: Routes) -> some View{
         switch route {
-        case .detail:
-            DetailView()
+        case .categoryView(let category, let articles):
+            CategoryView(category: category, articles: articles)
+        case .detail(let urlString):
+            DetailView(urlString: urlString)
         }
     }
     

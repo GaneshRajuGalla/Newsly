@@ -48,7 +48,7 @@ class NavigationManager: ObservableObject{
     func popLast(){
         switch selectedTab {
         case .trends:
-            favoriteRoutes.removeLast()
+            trendRoutes.removeLast()
         case .favorite:
             favoriteRoutes.removeLast()
         case .more:

@@ -6,13 +6,28 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct DetailView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    
+    // MARK: - Properties
+    let urlString: String
+    @EnvironmentObject private var manager: NavigationManager
+    
+    init(urlString: String) {
+        self.urlString = urlString
     }
-}
-
-#Preview {
-    DetailView()
+    
+    // MARK: - Body
+    var body: some View {
+        if let url = URL(string: urlString) {
+            WebView(url: url)
+                .edgesIgnoringSafeArea(.all)
+                .toolbar(.hidden, for: .tabBar)
+                .navigationBarBackButtonHidden(true)
+                .modifier(BackToView {
+                    manager.popLast()
+                })
+        }
+    }
 }
