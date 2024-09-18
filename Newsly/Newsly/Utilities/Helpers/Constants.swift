@@ -7,4 +7,4 @@
 
 import Foundation
 
-let apiKey: String = "acb264e1f0174c09a2a11cc709099635"
+let apiKey: String = "a2866a4e3f9749e49cffee1aa30259af"

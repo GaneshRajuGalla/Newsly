@@ -8,9 +8,9 @@
 | TrendsList | TrendsGrid | FavouriteEmpty |
 | -- | -- | -- |
 | <img src="Newsly/Media/TrendsList.png" width="200"> | <img src="Newsly/Media/TrendsGrid.png" width="200"> | <img src="Newsly/Media/FavouriteEmpty.png" width="200">
-| Favourites | CategoryEmpty | CategoryList 
+| Favourites | CategoryList | More 
 | -- | -- 
-| <img src="Newsly/Media/Favourites.png" width="200"> | <img src="Newsly/Media/CategoryEmpty.png" width="200"> | <img src="Newsly/Media/CategoryList.png" width="200">
+| <img src="Newsly/Media/Favourites.png" width="200"> | <img src="Newsly/Media/CategoryList.png" width="200"> | <img src="Newsly/Media/More.png" width="200">
 
 ## Overview
 
