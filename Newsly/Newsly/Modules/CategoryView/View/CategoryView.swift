@@ -65,7 +65,3 @@ extension CategoryView {
         }
     }
 }
-
-//#Preview {
-//    CategoryView()
-//}

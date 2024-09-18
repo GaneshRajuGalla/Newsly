@@ -18,11 +18,4 @@ extension String {
         }
         return url
     }
-    
-    var isEmptyOrWhitespace: Bool {
-        if(self.isEmpty) {
-            return true
-        }
-        return (self.trimmingCharacters(in: NSCharacterSet.whitespaces) == "")
-    }
 }

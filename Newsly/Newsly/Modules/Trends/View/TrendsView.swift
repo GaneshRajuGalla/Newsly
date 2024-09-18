@@ -37,10 +37,7 @@ struct TrendsView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
-        .onChange(of: viewModel.isGrid) { value in
-            // grid logic will come here
-        }
-        .onChange(of: viewModel.showFavorite){ value in
+        .onChange(of: viewModel.showFavorite) { value in
             if value {
                 manager.selectedTab = .favorite
             }

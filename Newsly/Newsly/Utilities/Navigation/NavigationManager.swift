@@ -37,22 +37,34 @@ class NavigationManager: ObservableObject{
     func pop(to route: Routes){
         switch selectedTab {
         case .trends:
-            trendRoutes.removeAll(where: {$0 == route})
+            if !trendRoutes.isEmpty, trendRoutes.contains(route) {
+                trendRoutes.removeAll(where: { $0 == route })
+            }
         case .favorite:
-            favoriteRoutes.removeAll(where: {$0 == route})
+            if !favoriteRoutes.isEmpty, favoriteRoutes.contains(route) {
+                favoriteRoutes.removeAll(where: { $0 == route })
+            }
         case .more:
-            moreRoutes.removeAll(where: {$0 == route})
+            if !moreRoutes.isEmpty, moreRoutes.contains(route) {
+                moreRoutes.removeAll(where: { $0 == route })
+            }
         }
     }
     
     func popLast(){
         switch selectedTab {
         case .trends:
-            trendRoutes.removeLast()
+            if !trendRoutes.isEmpty {
+                trendRoutes.removeLast()
+            }
         case .favorite:
-            favoriteRoutes.removeLast()
+            if !favoriteRoutes.isEmpty {
+                favoriteRoutes.removeLast()
+            }
         case .more:
-            moreRoutes.removeLast()
+            if !moreRoutes.isEmpty {
+                moreRoutes.removeLast()
+            }
         }
     }
     

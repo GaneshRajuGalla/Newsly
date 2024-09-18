@@ -8,5 +8,3 @@
 import Foundation
 
 let apiKey: String = "90cbf01205e942c8bf47b1aa2770c3d3"
-typealias DefaultHandler = (() -> ())
-typealias GenericHandler<T> = (T?, Error?) -> Void
