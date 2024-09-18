@@ -62,6 +62,6 @@ To get started with Sacrena, follow these simple steps:
 
 If you have any questions or need assistance, please contact ganeshrajugalla@gmail.com.
 
-I hope you enjoy using Sacrena and find it a valuable addition to your daily conversations. Happy chatting!
+I hope you enjoy using Newsly and find it a valuable addition to staying informed with the latest news. Happy reading!
 
 
