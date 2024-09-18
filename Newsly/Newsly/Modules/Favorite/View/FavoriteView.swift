@@ -22,7 +22,9 @@ struct FavoriteView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        
+                        withAnimation {
+                            isGrid.toggle()
+                        }
                     } label: {
                         Image(systemName: "square.grid.2x2")
                             .resizable()
@@ -40,11 +42,11 @@ extension FavoriteView {
     
     @ViewBuilder
     private var contentView: some View {
-        ScrollView(.vertical) {
-            LazyVStack(alignment: .leading, spacing: 20) {
+        if !persistanceManager.favoriteArticles.isEmpty {
+            AdaptiveView(isGrid: $isGrid) {
                 ForEach(persistanceManager.favoriteArticles, id: \.id) { article in
                     let newArticle = Article(description: article.desp, title: article.title, url: article.url, urlToImage: article.urlToImage)
-                    ArticleCardView(article: newArticle)
+                    ArticleCardView(article: newArticle, isGrid: $isGrid)
                         .onTapGesture {
                             if let url = article.url {
                                 manager.push(to: .detail(url))
@@ -52,6 +54,8 @@ extension FavoriteView {
                         }
                 }
             }
+        } else {
+            ContentNotavailableView(contentType: .noFavorites)
         }
     }
 }

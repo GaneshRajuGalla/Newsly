@@ -10,6 +10,7 @@ import SwiftUI
 enum ContentUnavailableType {
     case connectionIssue
     case noDataAvailable
+    case noFavorites
     case errorOccurred(String, retryCallback: () -> Void)
     
     var title: String {
@@ -17,7 +18,9 @@ enum ContentUnavailableType {
         case .connectionIssue:
             return "Connection issue"
         case .noDataAvailable:
-            return "No data available"
+            return "No articles available"
+        case .noFavorites:
+            return "No favorites"
         case .errorOccurred:
             return "An error occurred"
         }
@@ -28,7 +31,9 @@ enum ContentUnavailableType {
         case .connectionIssue:
             return "wifi.slash"
         case .noDataAvailable:
-            return "exclamationmark.triangle"
+            return "newspaper"
+        case .noFavorites:
+            return "star.slash"
         case .errorOccurred:
             return "xmark.octagon"
         }
@@ -39,7 +44,9 @@ enum ContentUnavailableType {
         case .connectionIssue:
             return "Check your internet connection"
         case .noDataAvailable:
-            return "Please try refreshing the content"
+            return "No articles available at the moment."
+        case .noFavorites:
+            return "You haven't added any favorites yet."
         case .errorOccurred(let description, _):
             return description
         }

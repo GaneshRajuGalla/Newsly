@@ -12,7 +12,7 @@ final class TrendsViewModel: ObservableObject {
     
     // MARK: - Properties
     var categoryArticles: [String: [Article]] = [:]
-    let categories: [String] = ["business"] // , "entertainment", "general", "health", "science", "sports", "technology"
+    let categories: [String] = ["business"]//, "entertainment", "general", "health", "science", "sports", "technology"] // , 
     
     @Published var viewState: ViewState<[String: [Article]]> = .initial
     @Published var selectedCategories: [String] = []

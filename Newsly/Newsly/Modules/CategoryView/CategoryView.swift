@@ -13,6 +13,7 @@ struct CategoryView: View {
     let category: String
     let articles:[Article]
     @EnvironmentObject private var manager: NavigationManager
+    @State private var isGrid:Bool = false
     
     init(category: String, articles: [Article]) {
         self.category = category
@@ -53,7 +54,7 @@ extension CategoryView {
         ScrollView(.vertical) {
             LazyVStack(alignment: .leading, spacing: 20) {
                 ForEach(articles, id: \.id) { article in
-                    ArticleCardView(article: article)
+                    ArticleCardView(article: article, isGrid: $isGrid)
                         .onTapGesture {
                             if let url = article.url {
                                 manager.push(to: .detail(url))

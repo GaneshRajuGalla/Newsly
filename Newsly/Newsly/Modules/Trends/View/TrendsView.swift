@@ -70,13 +70,15 @@ extension TrendsView {
         Section {
             let shouldLimitArticles = viewModel.selectedCategories.count > 1
             let displayedArticles = shouldLimitArticles ? Array(articles.prefix(10)) : articles
-            ForEach(displayedArticles, id: \.id) { article in
-                ArticleCardView(article: article)
-                    .onTapGesture {
-                        if let url = article.url {
-                            manager.push(to: .detail(url))
+            AdaptiveView(isGrid: $viewModel.isGrid) {
+                ForEach(displayedArticles, id: \.id) { article in
+                    ArticleCardView(article: article, isGrid: $viewModel.isGrid)
+                        .onTapGesture {
+                            if let url = article.url {
+                                manager.push(to: .detail(url))
+                            }
                         }
-                    }
+                }
             }
         } header: {
             Button {
@@ -93,7 +95,6 @@ extension TrendsView {
                         .foregroundStyle(Color("AccentColor"))
                 }
                 .contentShape(Rectangle())
-                .padding(.horizontal)
             }
         }
     }
