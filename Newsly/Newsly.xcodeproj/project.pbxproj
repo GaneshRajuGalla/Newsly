@@ -55,6 +55,7 @@
 		6EA06BC12C9A9C4C00C252CE /* ArticleContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EA06BBF2C9A9C4C00C252CE /* ArticleContainer.xcdatamodeld */; };
 		6EA06BC32C9A9D6400C252CE /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA06BC22C9A9D6400C252CE /* PersistenceManager.swift */; };
 		6EA06BC52C9ABC8600C252CE /* AdaptiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA06BC42C9ABC8600C252CE /* AdaptiveView.swift */; };
+		6EA06BC72C9AFBD900C252CE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA06BC62C9AFBD900C252CE /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		6EA06BC02C9A9C4C00C252CE /* ArticleContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ArticleContainer.xcdatamodel; sourceTree = "<group>"; };
 		6EA06BC22C9A9D6400C252CE /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		6EA06BC42C9ABC8600C252CE /* AdaptiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveView.swift; sourceTree = "<group>"; };
+		6EA06BC62C9AFBD900C252CE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +311,7 @@
 				6E7278782C995C2D002F73D7 /* Constants.swift */,
 				6EA06BB52C9A6A8C00C252CE /* ViewState.swift */,
 				6EA06BC22C9A9D6400C252CE /* PersistenceManager.swift */,
+				6EA06BC62C9AFBD900C252CE /* Network.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				6E72787F2C995C81002F73D7 /* BackgroundView.swift in Sources */,
 				6E7278A62C996A0D002F73D7 /* NewsQuery.swift in Sources */,
 				6E7278982C9966B5002F73D7 /* Encodable+Extension.swift in Sources */,
+				6EA06BC72C9AFBD900C252CE /* Network.swift in Sources */,
 				6EA06BBC2C9A77EE00C252CE /* CategorySelectionView.swift in Sources */,
 				6EA06BBA2C9A6EED00C252CE /* ContentNotavailableView.swift in Sources */,
 				6E7278A82C997970002F73D7 /* News.swift in Sources */,

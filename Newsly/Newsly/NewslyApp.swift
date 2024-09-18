@@ -13,6 +13,8 @@ struct NewslyApp: App {
     // MARK: - Properties
     @StateObject private var manager:NavigationManager = .init()
     @StateObject private var persistanceManager: PersistenceManager = PersistenceManager()
+    @StateObject private var network = Network()
+    
     
     // MARK: - Body
     var body: some Scene {
@@ -21,6 +23,9 @@ struct NewslyApp: App {
                 .preferredColorScheme(.dark)
                 .environmentObject(manager)
                 .environmentObject(persistanceManager)
+                .onReceive(network.$connected) { isConnected in
+                    manager.selectedTab = isConnected ? .trends : .favorite
+                }
         }
     }
 }
