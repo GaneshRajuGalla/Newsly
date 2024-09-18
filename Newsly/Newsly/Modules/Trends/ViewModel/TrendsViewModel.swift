@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 @MainActor
 final class TrendsViewModel: ObservableObject {
@@ -17,7 +18,7 @@ final class TrendsViewModel: ObservableObject {
     @Published var viewState: ViewState<[String: [Article]]> = .initial
     @Published var selectedCategories: [String] = []
     @Published var searchText = ""
-    @Published var isGrid:Bool = false
+    @AppStorage("isGrid") var isGrid: Bool = false
     @Published var showFavorite: Bool = false
     
     init() {

@@ -23,7 +23,7 @@ struct NewslyApp: App {
                 .preferredColorScheme(.dark)
                 .environmentObject(manager)
                 .environmentObject(persistanceManager)
-                .onReceive(network.$connected) { isConnected in
+                .onChange(of: network.connected) { isConnected in
                     manager.selectedTab = isConnected ? .trends : .favorite
                 }
         }
