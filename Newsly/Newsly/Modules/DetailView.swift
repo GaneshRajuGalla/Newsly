@@ -24,7 +24,6 @@ struct DetailView: View {
             WebView(url: url)
                 .edgesIgnoringSafeArea(.all)
                 .toolbar(.hidden, for: .tabBar)
-                .navigationBarBackButtonHidden(true)
                 .modifier(BackToView {
                     manager.popLast()
                 })

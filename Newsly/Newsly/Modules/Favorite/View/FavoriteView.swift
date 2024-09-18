@@ -16,6 +16,7 @@ struct FavoriteView: View {
     // MARK: - body
     var body: some View {
         contentView
+            .padding(.top)
             .navigationTitle("Favourites")
             .navigationBarTitleDisplayMode(.inline)
             .navigation(path: $manager.favoriteRoutes)
@@ -27,7 +28,7 @@ extension FavoriteView {
     @ViewBuilder
     private var contentView: some View {
         if !persistanceManager.favoriteArticles.isEmpty {
-            ScrollView(.vertical) {
+            ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(alignment: .leading, spacing: 20) {
                     ForEach(persistanceManager.favoriteArticles, id: \.id) { article in
                         let newArticle = Article(description: article.desp, title: article.title, url: article.url, urlToImage: article.urlToImage)
