@@ -3,10 +3,13 @@
 ## App SnapShots
 
 | Launch | TrendsEmpty | TrendsError |
+| -- | -- | -- |
 | <img src="Newsly/Media/LaunchScreen.png" width="200"> | <img src="Newsly/Media/TrendsEmpty.png" width="200"> | <img src="Newsly/Media/TrendsError.png" width="200"> 
 | TrendsList | TrendsGrid | FavouriteEmpty |
+| -- | -- | -- |
 | <img src="Newsly/Media/TrendsList.png" width="200"> | <img src="Newsly/Media/TrendsGrid.png" width="200"> | <img src="Newsly/Media/FavouriteEmpty.png" width="200">
 | Favourites | CategoryList | News 
+| -- | -- | -- |
 | <img src="Newsly/Media/Favourites.png" width="200"> | <img src="Newsly/Media/CategoryList.png" width="200"> | <img src="Newsly/Media/News.png" width="200">
 
 ## Overview
