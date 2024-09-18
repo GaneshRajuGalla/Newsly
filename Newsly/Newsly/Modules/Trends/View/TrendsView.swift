@@ -51,7 +51,7 @@ extension TrendsView {
     
     @ViewBuilder
     private func contentView(articles:[String: [Article]]) -> some View {
-        ScrollView(.vertical) {
+        ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(alignment: .leading, spacing: 20) {
                 ForEach(viewModel.selectedCategories, id: \.self) { category in
                     if viewModel.hasArticles(articles: articles, for: category) {

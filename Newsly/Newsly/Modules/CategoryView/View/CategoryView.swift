@@ -51,7 +51,7 @@ extension CategoryView {
     
     @ViewBuilder
     private var contentView: some View {
-        ScrollView(.vertical) {
+        ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(alignment: .leading, spacing: 20) {
                 ForEach(articles, id: \.id) { article in
                     ArticleCardView(article: article, isGrid: $isGrid)
