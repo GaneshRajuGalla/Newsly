@@ -12,6 +12,7 @@ struct ArticleCardView: View {
     
     // MARK: - Properties
     let article: Article
+    @EnvironmentObject private var persistanceManager: PersistenceManager
     
     // MARK: - Body
     var body: some View {
@@ -37,6 +38,26 @@ extension ArticleCardView {
                         .aspectRatio(contentMode: .fit)
                         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 }
+            }
+            .overlay(alignment: .topLeading) {
+                Button {
+                    guard let url = article.url else {
+                        return
+                    }
+                    if persistanceManager.isArticleFavorite(url: url) {
+                        persistanceManager.removeArticle(url: url)
+                    } else {
+                        persistanceManager.addArticle(title: article.title ?? "", desp: article.description ?? "", url: article.url ?? "", urlToImage: article.urlToImage ?? "")
+                    }
+                } label: {
+                    let isFavorite = persistanceManager.isArticleFavorite(url: article.url ?? "")
+                    Image(systemName: isFavorite ? "star.fill" : "star")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                        .foregroundStyle(.yellow)
+                }
+                .padding(.all)
             }
 
             VStack(alignment: .leading, spacing: 5) {

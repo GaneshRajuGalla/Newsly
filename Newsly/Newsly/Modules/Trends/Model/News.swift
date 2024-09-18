@@ -54,3 +54,17 @@ struct Source: Codable {
         case name
     }
 }
+
+extension Article {
+    init(description: String?, title: String?, url: String?, urlToImage: String?) {
+        self.id = UUID() 
+        self.source = nil
+        self.author = nil
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = nil
+        self.content = nil
+    }
+}

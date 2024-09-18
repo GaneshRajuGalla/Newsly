@@ -11,7 +11,8 @@ import SwiftUI
 struct NewslyApp: App {
     
     // MARK: - Properties
-    @StateObject var manager:NavigationManager = .init()
+    @StateObject private var manager:NavigationManager = .init()
+    @StateObject private var persistanceManager: PersistenceManager = PersistenceManager()
     
     // MARK: - Body
     var body: some Scene {
@@ -19,6 +20,7 @@ struct NewslyApp: App {
             TabBar()
                 .preferredColorScheme(.dark)
                 .environmentObject(manager)
+                .environmentObject(persistanceManager)
         }
     }
 }

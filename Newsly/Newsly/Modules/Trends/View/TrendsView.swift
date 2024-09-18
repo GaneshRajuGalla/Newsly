@@ -12,7 +12,6 @@ struct TrendsView: View {
     // MARK: - Properties
     @StateObject private var viewModel = TrendsViewModel()
     @EnvironmentObject private var manager: NavigationManager
-   
     
     // MARK: - Body
     var body: some View {
