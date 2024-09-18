@@ -17,9 +17,13 @@ final class TrendsViewModel: ObservableObject {
     
     @Published var viewState: ViewState<[String: [Article]]> = .initial
     @Published var selectedCategories: [String] = []
-    @Published var searchText = ""
     @AppStorage("isGrid") var isGrid: Bool = false
     @Published var showFavorite: Bool = false
+    @Published var searchText = "" {
+           didSet {
+               filterArticlesBySearchText()
+           }
+       }
     
     init() {
         selectedCategories = categories
@@ -81,6 +85,25 @@ extension TrendsViewModel {
                 let filteredArticles = self.categoryArticles.filter { self.selectedCategories.contains($0.key) }
                 self.viewState = .success(filteredArticles)
             }
+        }
+    }
+    
+    func filterArticlesBySearchText() {
+        if searchText.isEmpty {
+            viewState = .success(categoryArticles)
+            return
+        }
+        
+        let matchedArticles: [String: [Article]] = categoryArticles.mapValues { articles in
+            articles.filter { article in
+                article.title?.localizedCaseInsensitiveContains(searchText) == true
+            }
+        }
+        
+        if matchedArticles.values.allSatisfy({ $0.isEmpty }) {
+            viewState = .empty
+        } else {
+            viewState = .success(matchedArticles)
         }
     }
 }
