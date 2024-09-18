@@ -11,13 +11,14 @@ struct CategorySelectionView: View {
     
     // MARK: - Properties
     @ObservedObject var viewModel: TrendsViewModel
+    let animation: Namespace.ID
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
                 ForEach(viewModel.categories, id: \.self) { category in
-                    CategoryChipView(category: category, isSelected: viewModel.selectedCategories.contains(category)) {
-                        withAnimation {
+                    CategoryChipView(category: category, isSelected: viewModel.selectedCategories.contains(category), animation: animation) {
+                        withAnimation(.spring()) {
                             viewModel.toggleCategorySelection(category)
                         }
                     }
@@ -31,6 +32,7 @@ struct CategorySelectionView: View {
 struct CategoryChipView: View {
     let category: String
     let isSelected: Bool
+    let animation: Namespace.ID
     let onTap: () -> Void
     
     var body: some View {
@@ -41,6 +43,7 @@ struct CategoryChipView: View {
             .background(isSelected ? Color("AccentColor") : Color("background"))
             .foregroundColor(isSelected ? Color.black : Color("AccentColor"))
             .cornerRadius(15)
+            .matchedGeometryEffect(id: category, in: animation)
             .onTapGesture {
                 onTap()
             }

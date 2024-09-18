@@ -13,6 +13,7 @@ struct AdaptiveView<Content: View>: View {
     @Binding var isGrid: Bool
     let content: () -> Content
     
+    
     // MARK: - Body
     var body: some View {
         Group {

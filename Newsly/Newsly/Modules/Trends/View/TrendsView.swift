@@ -12,12 +12,13 @@ struct TrendsView: View {
     // MARK: - Properties
     @StateObject private var viewModel = TrendsViewModel()
     @EnvironmentObject private var manager: NavigationManager
+    @Namespace private var animation
     
     // MARK: - Body
     var body: some View {
         VStack(spacing: 19){
-            SearchBarWithButtonView(searchText: $viewModel.searchText, isGrid: $viewModel.isGrid, showFavorite: $viewModel.showFavorite)
-            CategorySelectionView(viewModel: viewModel)
+            SearchBarWithButtonView(searchText: $viewModel.searchText, isGrid: $viewModel.isGrid, showFavorite: $viewModel.showFavorite, animation: animation)
+            CategorySelectionView(viewModel: viewModel, animation: animation)
             Spacer()
             switch viewModel.viewState {
             case .initial, .fetching:
@@ -70,6 +71,7 @@ extension TrendsView {
             AdaptiveView(isGrid: $viewModel.isGrid) {
                 ForEach(displayedArticles, id: \.id) { article in
                     ArticleCardView(article: article, isGrid: $viewModel.isGrid)
+                        .matchedGeometryEffect(id: article.id, in: animation)
                         .onTapGesture {
                             if let url = article.url {
                                 manager.push(to: .detail(url))

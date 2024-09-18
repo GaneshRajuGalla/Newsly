@@ -13,6 +13,7 @@ struct SearchBarWithButtonView: View {
     @Binding var searchText: String
     @Binding var isGrid:Bool
     @Binding var showFavorite:Bool
+    var animation: Namespace.ID
     
     // MARK: - Body
     var body: some View {
@@ -65,13 +66,10 @@ struct SearchBarWithButtonView: View {
                         .scaledToFit()
                         .foregroundColor(isGrid ? Color("AccentColor") : .gray)
                         .frame(width: 20, height: 20)
+                        .matchedGeometryEffect(id: "GridIcon", in: animation)
                 }
             }
         }
         .padding(.horizontal, 10)
     }
-}
-
-#Preview {
-    SearchBarWithButtonView(searchText: .constant(""), isGrid: .constant(false), showFavorite: .constant(false))
 }
